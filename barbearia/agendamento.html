@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Premium - Agendamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Agende seu Estilo ✂️</h1>
+        <p>Reserve seu horário (Pagamento de 50% de sinal online)</p>
+    <!-- 🔐 BOTÃO DO BARBEIRO -->
+    <a href="login.html">
+    <button style="margin-bottom:20px;">
+        Área do Barbeiro
+    </button>
+</a>
+
+        <form id="form-agendamento">
+            <label>Seu Nome:</label>
+            <input type="text" id="nome_cliente" placeholder="Ex: João Silva" required>
+        <label>Escolha o Barbeiro:</label>
+<select id="barbeiro" required>
+    <option value="" disabled selected>Selecione...</option>
+    <option value="joao@email.com">João</option>
+    <option value="carlos@email.com">Carlos</option>
+</select>
+            <label>WhatsApp:</label>
+            <input type="tel" id="cliente_whatsapp" placeholder="(00) 90000-0000">
+
+            <label>Escolha o Serviço:</label>
+<select id="servico">
+    <option value="" disabled selected>Selecione...</option>
+    <option value="Corte" data-preco="50">Corte Social - R$ 50,00</option>
+    <option value="Barba" data-preco="30">Barba - R$ 30,00</option>
+    <option value="Combo" data-preco="70">Corte + Barba - R$ 70,00</option>
+</select>
+            <div class="resumo-pagamento">
+                <p>Total: <span id="valor-total">R$ 0,00</span></p>
+                <p><strong>Sinal de 50% (Pague agora): <span id="valor-sinal">R$ 0,00</span></strong></p>
+            </div>
+
+            <label>Data:</label>
+            <input type="date" id="data_agendada" required>
+            <label>Hora:</label>
+         <select id="hora_agendada" required>
+    <option value="">Selecione um horário</option>
+</select>  
+
+            <button type="submit" id="btn-agendar">Confirmar e Pagar Sinal</button>
+        </form>
+    </div>
+
+    <!-- Script do Supabase -->
+    <script type="module" src="agendamento.js"></script>
+</body>
+
+</html>

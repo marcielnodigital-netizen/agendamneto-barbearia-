@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Cancelar Agendamento</title>
+</head>
+<body>
+
+<h2>Cancelando agendamento...</h2>
+
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+const supabase = createClient(
+  'https://otwcraewogbonfjnpxoe.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im90d2NyYWV3b2dib25mam5weG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzMDY3NjEsImV4cCI6MjA4OTg4Mjc2MX0.6Gw7JACYTjVMDLWXBJU42c7I_CQ1Sb8PlzUR640vQcU'
+);
+
+// pegar ID da URL
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+if (!id) {
+  document.body.innerHTML = "ID inválido";
+} else {
+
+  const { error } = await supabase
+    .from('agendamentos')
+    .update({ status: 'cancelado' })
+    .eq('id', id);
+
+  if (error) {
+    document.body.innerHTML = "Erro ao cancelar";
+  } else {
+    document.body.innerHTML = "Agendamento cancelado com sucesso!";
+  }
+}
+</script>
+
+</body>
+</html>
