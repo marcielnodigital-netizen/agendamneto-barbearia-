@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "secretaria-virtual",
+  "compatibility_date": "2026-06-07",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "barbearia"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
